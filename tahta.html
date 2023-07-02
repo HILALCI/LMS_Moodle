@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <style>
+        #recicon:hover {
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+        
+    <!--Menu-->
+    <ul class="nav nav-tabs">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                </svg>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="ekdeg('daire')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                    </svg>
+                </a></li>
+                <li><a class="dropdown-item" onclick="ekdeg('cember')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-record-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="ekdeg('kare')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"/>
+                    </svg>
+                </a></li>
+                <li><a class="dropdown-item" onclick="ekdeg('kare2')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    </svg>
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="ekdeg('dikdorgen')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square-half" viewBox="0 0 16 16">
+                        <path d="M8 15V1h6a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H8zm6 1a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12z"/>
+                    </svg>
+                </a></li>
+                <li><a class="dropdown-item" onclick="ekdeg('dikdorgen2')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="recicon" width="16" height="16" fill="currentColor" class="bi bi-square-half" viewBox="0 0 16 16">
+                        <path d="M8 15V1h6a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H8zm6 1a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12z"/>
+                    </svg>
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="ekdeg('yazi')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-type" viewBox="0 0 16 16">
+                        <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081h1.244zm2.7-7.923L6.34 9.314H3.51l1.4-4.156h.034zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525z"/>
+                    </svg>
+                </a></li>
+                <li><a class="dropdown-item" onclick="ekdeg('yazi2')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fonts" viewBox="0 0 16 16">
+                        <path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479L12.258 3z"/>
+                    </svg>
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="ekdeg('resim')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
+                        <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/>
+                    </svg>
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="ekdeg('cizgi')" href="javascript:;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3-range" viewBox="0 0 16 16">
+                        <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                        <path d="M7 10a1 1 0 0 0 0-2H1v2h6zm2-3h6V5H9a1 1 0 0 0 0 2z"/>
+                    </svg>
+                </a></li>
+                
+                
+            </ul>
+            </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette-fill" viewBox="0 0 16 16">
+                    <path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07zM8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="renkdeg('blue')" href="javascript:;">Blue</a></li>
+                <li><a class="dropdown-item" onclick="renkdeg('purple')" href="javascript:;">Purple</a></li>
+                <li><a class="dropdown-item" onclick="renkdeg('yellow')" href="javascript:;">Yellow</a></li>
+                <li><a class="dropdown-item" onclick="renkdeg('green')" href="javascript:;">Green</a></li>
+                <li><a class="dropdown-item" onclick="renkdeg('red')" href="javascript:;">Red</a></li>
+                <li><a class="dropdown-item" onclick="renkdeg('orange')" href="javascript:;">Orange</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="renkdeg('black')" href="javascript:;">Black</a></li>
+                <li><a class="dropdown-item" onclick="renkdeg('white')" href="javascript:;">White</a></li>
+            </ul>
+            </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bounding-box-circles" viewBox="0 0 16 16">
+                    <path d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2zm2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2.004 2.004 0 0 1 1.437-1.437V3.937A2.004 2.004 0 0 1 12.063 2.5H3.937A2.004 2.004 0 0 1 2.5 3.937zM14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                </svg>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="boyutdeg(10)" href="javascript:;">10</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(20)" href="javascript:;">20</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(30)" href="javascript:;">30</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(40)" href="javascript:;">40</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(50)" href="javascript:;">50</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(60)" href="javascript:;">60</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(70)" href="javascript:;">70</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(80)" href="javascript:;">80</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(90)" href="javascript:;">90</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(100)" href="javascript:;">100</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(5)" href="javascript:;">5</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(4)" href="javascript:;">4</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(3)" href="javascript:;">3</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(2)" href="javascript:;">2</a></li>
+                <li><a class="dropdown-item" onclick="boyutdeg(1)" href="javascript:;">1</a></li>
+            </ul>
+            </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hexagon-half" viewBox="0 0 16 16">
+                    <path d="M14 4.577v6.846L8 15V1l6 3.577zM8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/>
+                </svg>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="saydamdeg(0.25)" href="javascript:;">%25</a></li>
+                <li><a class="dropdown-item" onclick="saydamdeg(0.50)" href="javascript:;">%50</a></li>
+                <li><a class="dropdown-item" onclick="saydamdeg(0.75)" href="javascript:;">%75</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" onclick="saydamdeg(1.0)" href="javascript:;">%100</a></li>
+            </ul>
+            </li>
+
+        <li class="nav-item">
+        <div class="form-floating">
+            <input type="text" class="form-control" placeholder="Buraya yazi yaz." id="floatingText">
+            <label for="floatingTextarea">Text or File path</label>
+        </div>
+        </li>
+
+        <li class="nav-item">
+            <div class="mb-3">
+                <label for="File" class="form-label">Select file</label>
+                <input class="form-control" type="file" id="File" accept=".png,.jpg, .jpeg, .svg, .gif, .webp, .bmp, .heif, .avif, .tiff, .tif">
+                </div>
+        </li>
+
+        <li class="nav-item">
+            <button type="button" id="cls" onclick="clear()" class="btn btn-outline-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                    <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                </svg>
+            </button>
+        </li> 
+
+        <li class="nav-item">
+            <button type="button" class="btn btn-outline-warning"><a id="kay" class="nav-link" onclick="save()" href="#" download="canvas.png">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-download-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+                </svg>
+            
+            </a></button>
+        </li>
+    </ul>
+
+
+      
+
+    <!--Canvas-->
+    <div class="container-fluid">
+    <canvas id="tahta" width="%100" height="%100" style="border:3px solid #000000;"></canvas>
+    </div>
+    
+
+    <script>
+    document.getElementById("floatingText").value = '';
+    document.getElementById("File").value = '';
+    let  flag = false;
+    var kara_tahta = document.getElementById('tahta');
+    kara_tahta.width = window.innerWidth;
+    kara_tahta.height = window.innerHeight;
+    var ciz = kara_tahta.getContext("2d");
+
+    function basla(e){
+        flag = true;
+        cizdir(e);
+    }
+
+    function bitir(){
+        flag = false;
+        ciz.beginPath();
+    }
+
+    kara_tahta.addEventListener("mousedown", basla);
+    kara_tahta.addEventListener("mouseup", bitir);
+    kara_tahta.addEventListener("mousemove", cizdir);
+
+    function getPosition(e){
+        coord.x = e.x - kara_tahta.offsetLeft;
+        coord.y = e.y - kara_tahta.offsetTop;
+    }
+    
+    
+
+    var renk = "white"
+    var boyut = 10
+    var saydam = 1.0
+    var ekle = "cizgi"
+    var metin = "default"
+
+    function renkdeg(col){
+        renk = col;
+    }
+
+    function boyutdeg(boy){
+        boyut = boy;
+    }
+
+    function saydamdeg(say){
+        saydam = say;
+    }
+
+    function ekdeg(ek){
+        ekle = ek;
+    }
+
+
+    function cizdir(e){
+        if (!flag) return;
+        
+        ciz.lineWidth = boyut;
+        ciz.strokeStyle = renk;
+        ciz.globalAlpha = saydam;
+
+        if (ekle == "cizgi") {
+            ciz.lineCap = "round";
+            ciz.lineTo(e.offsetX, e.offsetY);
+            ciz.stroke();
+            
+            ciz.beginPath();
+            ciz.moveTo(e.offsetX, e.offsetY);
+        }
+
+        else if (ekle == "daire") {
+            ciz.moveTo(e.offsetX+boyut, e.offsetY);
+            ciz.arc(e.offsetX, e.offsetY, boyut, 0, 2*Math.PI);
+            ciz.stroke();
+            ciz.fillStyle = renk;
+            ciz.fill();
+        }
+
+        else if (ekle == "cember") {
+            ciz.moveTo(e.offsetX+boyut, e.offsetY);
+            ciz.arc(e.offsetX, e.offsetY, boyut, 0, 2*Math.PI);
+            ciz.stroke();
+        }
+
+        else if (ekle == "kare") {
+            ciz.fillStyle = renk;
+            ciz.fillRect(e.offsetX, e.offsetY, boyut*5, boyut*5);
+            ciz.stroke();
+        }
+
+        else if (ekle == "kare2") {
+            ciz.strokeRect(e.offsetX, e.offsetY, boyut*5, boyut*5);
+            ciz.stroke();
+        }
+
+        else if (ekle == "dikdorgen") {
+            ciz.fillStyle = renk;
+            ciz.fillRect(e.offsetX, e.offsetY, boyut*10, boyut*5);
+            ciz.stroke();
+        }
+
+        else if (ekle == "dikdorgen2") {
+            ciz.strokeRect(e.offsetX, e.offsetY, boyut*10, boyut*5);
+            ciz.stroke();
+        }
+        
+        else if (ekle == "yazi"){
+            ciz.font = parseInt(boyut*5)+"px Arial";
+            ciz.fillStyle = renk;
+            if (document.getElementById("floatingText").value != ""){
+                metin = document.getElementById("floatingText").value;
+            }
+            ciz.fillText(metin, e.offsetX, e.offsetY);
+        }
+
+        else if (ekle == "yazi2"){
+            ciz.font = parseInt(boyut*5)+"px Arial";
+            if (document.getElementById("floatingText").value != ""){
+                metin = document.getElementById("floatingText").value;
+            }
+            ciz.strokeText(metin, e.offsetX, e.offsetY);
+        }
+
+        else if (ekle == "resim"){
+            ext = ["png","jpg", "jpeg", "svg", "gif", "webp", "bmp", "heif", "avif", "tiff", "tif"]
+            pth = ["home","usr", "user", "/", "\\", "Downloads", "Documents", "Pictures"]
+            if(ext.indexOf(document.getElementById("File").value.split('.').pop()) >= 0){
+                var img = new Image();
+                var kontrol = document.getElementById("floatingText").value.split("/");
+                if ((document.getElementById("floatingText").value != "") && kontrolet(pth, kontrol)){
+                    var gel = document.getElementById("floatingText").value.split("/").length + 1;
+                    img.src = "../".repeat(gel)+document.getElementById("floatingText").value+ "/"+ 
+                                document.getElementById("File").value.split('\\')[2];                        
+                }
+                else{
+                    document.getElementById("floatingText").value = "";
+                    img.src = "./"+document.getElementById("File").value.split('\\')[2];
+                }
+
+                var rect = kara_tahta.getBoundingClientRect();
+
+                img.onload = function (){
+                    ciz.drawImage(img, e.clientX - rect.left, e.clientY - rect.top, boyut*20, boyut*20);
+                }
+            }
+
+            else if (document.getElementById("File").value == "") {
+                alert("Dosya secmediniz.Lutfen bir resim seciniz.")
+            }
+
+            else {
+                alert("Destekleyenmeyen dosya uzantisi lutfen yeniden resim seciniz.")
+            }
+        }
+
+    }
+
+    function clear(){
+        ciz.clearRect(0, 0, kara_tahta.width, kara_tahta.height);
+        document.getElementById("floatingText").value = '';
+        metin = "default"
+        document.getElementById("File").value = '';
+    }
+
+    document.getElementById('cls').addEventListener("click", clear);
+
+    /*
+    fullQuality 1.0
+    mediumQuality 0.5
+    lowQuality 0.1
+
+    "image/jpeg"
+    "image/png"
+
+    const resurl = kara_tahta.toDataURL("image/jpeg", 1.0);
+    const resurl = kara_tahta.toDataURL("image/png", 1.0);
+    */
+    function save(){
+        const resurl = kara_tahta.toDataURL("image/png", 1.0);
+        const downld = document.getElementById('kay');
+
+        downld.href = resurl;
+    }
+
+    document.getElementById('kay').addEventListener("click", save);
+
+    function kontrolet(x, y){
+        for (let i = 0; i < x.length; i++) {
+            for (let j = 0; j < y.length; j++) {
+                if(i == j){
+                    return true;
+                }
+            }
+        } 
+        return false; 
+    }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>
